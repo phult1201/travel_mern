@@ -5,13 +5,16 @@
   "main": "server.js",
   "scripts": {
     "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "backend": "nodemon server/server.js",
+    "frontend": "npm run start --prefix client",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "concurrently": "^6.2.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
