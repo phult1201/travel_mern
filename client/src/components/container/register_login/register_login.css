@@ -1,51 +1,72 @@
 .register-login {
   display: inline-block;
-  width: 480px;
-  padding: 25px;
+  width: 520px;
+  padding: 10px 20px 20px 20px;
   border: 2px solid #34656d;
-  color: #34656d;
   border-radius: 4px;
   font-size: 1.6rem;
 }
 
 .register-login__row {
-  width: 100%;
-  display: inline-block;
-  margin: 0 auto;
+  display: block;
+  position: relative;
+  padding-top: 20px;
+  margin: 12px 0;
 }
 
 .register-login__title {
+  text-align: center;
+  display: block;
+  color: #34656d;
+  border-bottom: 1px solid #ccc;
   text-transform: uppercase;
-  font-size: 2.4rem;
-  letter-spacing: 0.2rem;
+}
+
+.register-login__form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.register-login__label {
+  height: auto;
+  font-size: 1.6rem;
+  font-weight: 100;
+  left: 0;
+  position: absolute;
+  color: #aaa;
+  transition: all 500ms ease-in-out;
 }
 
 .register-login__input {
-  width: 100%;
-  margin: 8px auto;
-  outline: none;
   border: none;
-  padding: 0 8px;
-  height: 30px;
+  outline: none;
   color: #34656d;
-  border-bottom: 1px solid #34656d;
-  transition: all 0.1s;
+  width: 100%;
+  height: 30px;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(52, 101, 109, 0.5);
+  transition: border-bottom 0.2s ease-in;
 }
 
-.register-login__input:focus {
+.register-login__input:focus, .register-login__input:valid {
+  border-bottom: 2px solid #34656d;
+}
+
+.register-login__input:focus ~ label,
+.register-login__input:valid ~ label {
+  top: 0;
   color: #34656d;
-  background-color: rgba(52, 101, 109, 0.1);
-  border-bottom: 2px solid;
 }
 
 .register-login__btn {
-  outline: none;
+  cursor: pointer;
   border: none;
-  padding: 10px;
+  outline: none;
+  padding: 8px 32px;
+  color: #fff;
+  border-radius: 4px;
   background-color: #34656d;
-  color: white;
-  border-radius: 20px;
-  width: 100%;
+  transition: background-color 100ms ease-in;
 }
 
 .register-login__btn:hover {
