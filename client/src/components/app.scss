@@ -10,3 +10,10 @@
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
 }
+
+.App {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+@import url("./container/register_login/register_login.css");

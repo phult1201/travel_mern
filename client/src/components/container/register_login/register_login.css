@@ -1,0 +1,53 @@
+.register-login {
+  display: inline-block;
+  width: 480px;
+  padding: 25px;
+  border: 2px solid #34656d;
+  color: #34656d;
+  border-radius: 4px;
+  font-size: 1.6rem;
+}
+
+.register-login__row {
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.register-login__title {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  letter-spacing: 0.2rem;
+}
+
+.register-login__input {
+  width: 100%;
+  margin: 8px auto;
+  outline: none;
+  border: none;
+  padding: 0 8px;
+  height: 30px;
+  color: #34656d;
+  border-bottom: 1px solid #34656d;
+  transition: all 0.1s;
+}
+
+.register-login__input:focus {
+  color: #34656d;
+  background-color: rgba(52, 101, 109, 0.1);
+  border-bottom: 2px solid;
+}
+
+.register-login__btn {
+  outline: none;
+  border: none;
+  padding: 10px;
+  background-color: #34656d;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.register-login__btn:hover {
+  background-color: rgba(52, 101, 109, 0.8);
+}

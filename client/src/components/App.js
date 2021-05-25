@@ -1,11 +1,14 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./app.css";
+import RegisterLogin from "./container/register_login";
 
 function App() {
   return (
     <Switch>
-      <div className="App"></div>;
+      <div className="App">
+        <Route path="/login" component={RegisterLogin} />
+      </div>
     </Switch>
   );
 }
