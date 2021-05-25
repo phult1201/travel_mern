@@ -1,0 +1,28 @@
+import { userConstants } from "./constants";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+export const userLogin = (user) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: userConstants.USER_LOGIN_REQUEST });
+      const res = await axios
+        .post("/api/users/login", user, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .catch(function (error) {
+          return error.response;
+        });
+      if (res.status === 200) {
+        dispatch({ type: userConstants.USER_LOGIN_SUCCESS, payload: res.data });
+        toast.success(res.data.msg);
+      }
+      if (res.status === 401) {
+        dispatch({ type: userConstants.USER_LOGIN_FAILURE, payload: res.data });
+        toast.error(res.data.msg);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../../actions";
 
 const RegisterLogin = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
 
   const submitForm = (e) => {
     e.preventDefault();
+    dispatch(userLogin(user));
   };
 
   const onChangeInput = (e) => {

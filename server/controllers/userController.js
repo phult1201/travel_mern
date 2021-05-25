@@ -10,9 +10,9 @@ module.exports = {
   },
   login: (req, res) => {
     Users.findOne({ email: req.body.email }).exec(async (err, user) => {
-      if (err) return err;
+      if (!user) return res.status(401).json({ loginSuccess: false, msg: "User doesn't exists" });
       user.comparePassword(req.body.password).then(async (result) => {
-        if (!result) return res.status(400).json({ loginSuccess: false, msg: "Wrong password" });
+        if (!result) return res.status(401).json({ loginSuccess: false, msg: "Wrong password" });
         user.generateToken();
         return res.cookie("x_auth", user.token).status(200).json({ loginSuccess: true, msg: "Login success" });
       });
