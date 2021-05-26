@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../../actions";
 
-const RegisterLogin = () => {
+const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -63,4 +63,4 @@ const RegisterLogin = () => {
   );
 };
 
-export default RegisterLogin;
+export default Login;

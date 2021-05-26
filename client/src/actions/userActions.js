@@ -26,3 +26,28 @@ export const userLogin = (user) => {
     }
   };
 };
+
+export const userRegister = (user) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: userConstants.USER_REGISTER_REQUEST });
+      const res = await axios
+        .post("/api/users/register", user, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .catch(function (error) {
+          return error.response;
+        });
+      if (res.status === 201) {
+        dispatch({ type: userConstants.USER_REGISTER_SUCCESS, payload: res.data });
+        toast.success(res.data.msg);
+      }
+      if (res.status === 400) {
+        dispatch({ type: userConstants.USER_REGISTER_FAILURE, payload: res.data });
+        toast.error(res.data.msg);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
