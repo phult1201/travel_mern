@@ -49,8 +49,9 @@
 .register-login__input {
   border: none;
   outline: none;
-  color: #34656d;
+  color: #192a56;
   font-size: 1.6rem;
+  padding-left: 2px;
   width: 100%;
   height: 30px;
   border-radius: 0;
@@ -60,7 +61,7 @@
 
 .register-login__input:focus, .register-login__input:valid {
   border-bottom: 2px solid #4a4e69;
-  background-color: rgba(52, 101, 109, 0.1);
+  background-color: #e8f0fe;
 }
 
 .register-login__input:focus ~ label,

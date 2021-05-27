@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { FaUserCircle, FaCartPlus } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
+import { IoIosPerson, IoIosLogOut } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
+import { userLogout } from "../../actions";
+import Dropdown from "../utils/dropdown";
 
 const Header = (props) => {
   const [checked, setChecked] = useState(false);
   const userReducer = useSelector((state) => state.userReducer);
+
+  const items = [
+    { value: "Details", icon: <IoIosPerson />, href: "/#" },
+    { value: "Logout", icon: <IoIosLogOut />, event: userLogout, href: "/#" },
+  ];
 
   useEffect(() => {
     setChecked(false);
     // eslint-disable-next-line
   }, [props.location.pathname]);
 
-  const handleToggleCheck = () => {
-    setChecked(!checked);
-  };
+  const toggle = () => setChecked(!checked);
 
   const LoggedNav = () => {
     return (
       <ul className="header__link">
-        <li>
+        <li className="header__link-item">
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className="header__link-item">
           <Link to="/chat">Chat</Link>
         </li>
-        <li>
-          <FaUserCircle />
-          <Link to="/">{userReducer.user.name}</Link>
+        <li className="header__link-item">
+          <Dropdown title={userReducer.user.name} items={items} />
         </li>
       </ul>
     );
@@ -36,13 +41,13 @@ const Header = (props) => {
   const NonLoggedNav = () => {
     return (
       <ul className="header__link">
-        <li>
+        <li className="header__link-item">
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className="header__link-item">
           <Link to="/login">login</Link>
         </li>
-        <li>
+        <li className="header__link-item">
           <Link to="/register">register</Link>
         </li>
       </ul>
@@ -58,7 +63,7 @@ const Header = (props) => {
       <div className="header__navbar">
         <input type="checkbox" checked={checked} className="header__check-box" readOnly />
 
-        <label className="header__overlay" onClick={handleToggleCheck}></label>
+        <label className="header__overlay" onClick={toggle}></label>
 
         {userReducer.loginSuccess ? <LoggedNav /> : <NonLoggedNav />}
 
@@ -69,7 +74,7 @@ const Header = (props) => {
           </Link>
         </div>
 
-        <label className="header__burger" onClick={handleToggleCheck}>
+        <label className="header__burger" onClick={toggle}>
           <div className="header__burger-line header__burger-line--1"></div>
           <div className="header__burger-line header__burger-line--2"></div>
           <div className="header__burger-line header__burger-line--3"></div>

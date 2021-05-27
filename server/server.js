@@ -14,7 +14,7 @@ const config = require("./config");
 mongoose
   .connect(config.mongoURI, {
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

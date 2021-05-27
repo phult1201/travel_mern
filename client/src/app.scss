@@ -28,10 +28,13 @@ a {
 }
 
 // Login-Register
-@import url("./container/register_login/register_login.css");
+@import url("./components/container/register_login/register_login.css");
 
 // Header
-@import url("./header/header.css");
+@import url("./components/header/header.css");
 
 // Footer
-@import url("./footer/footer.css");
+@import url("./components/footer/footer.css");
+
+// Utils - Dropdown
+@import url("./components/utils/dropdown/dropdown.css");

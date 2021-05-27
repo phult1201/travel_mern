@@ -53,13 +53,13 @@
   letter-spacing: 2px;
 }
 
-.header__link li {
+.header__link-item {
   display: inline-block;
   margin: 0 20px;
   transition: all 0.2s ease;
 }
 
-.header__link li svg {
+.header__link-item svg {
   position: relative;
   vertical-align: middle;
   color: #fff;
@@ -68,13 +68,13 @@
   height: 100%;
 }
 
-.header__link li a {
+.header__link-item a {
   vertical-align: middle;
   color: #fff;
   font-size: 1.6rem;
 }
 
-.header__link li:hover {
+.header__link-item:hover {
   transform: scale(1.1);
 }
 
@@ -163,9 +163,13 @@
     opacity: 0;
     transition: transform 0.3s ease-in;
   }
-  .header__link li {
+  .header__link-item {
+    padding: 15px 10px;
+    cursor: pointer;
     display: block;
-    margin: 30px 20px;
+  }
+  .header__link-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
   }
   .header__check-box:checked ~ .header__link {
     opacity: 1;

@@ -23,6 +23,15 @@ const userReducer = (state = initialState, action) => {
     case userConstants.USER_LOGIN_FAILURE:
       state = { ...state, ...action.payload, request: false };
       break;
+    case userConstants.USER_LOGOUT_REQUEST:
+      state = { ...state, request: true };
+      break;
+    case userConstants.USER_LOGOUT_SUCCESS:
+      state = { ...state, ...action.payload, request: false };
+      break;
+    case userConstants.USER_LOGOUT_FAILURE:
+      state = { ...state, ...action.payload, request: false };
+      break;
     case userConstants.USER_REGISTER_REQUEST:
       state = { ...state, request: true };
       break;

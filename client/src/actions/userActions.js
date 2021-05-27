@@ -24,6 +24,27 @@ export const userLogin = (user) => {
   };
 };
 
+export const userLogout = () => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: userConstants.USER_LOGOUT_REQUEST });
+      const res = await axios.get("/api/users/logout").catch(function (error) {
+        return error.response;
+      });
+      if (res.status === 200) {
+        dispatch({ type: userConstants.USER_LOGOUT_SUCCESS, payload: res.data });
+        localStorage.removeItem("user");
+      }
+      if (res.status === 400) {
+        dispatch({ type: userConstants.USER_LOGOUT_FAILURE, payload: res.data });
+        toast.error(res.data.msg);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const userRegister = (user) => {
   return async (dispatch) => {
     try {

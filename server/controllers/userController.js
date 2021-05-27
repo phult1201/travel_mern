@@ -16,7 +16,7 @@ module.exports = {
         user.generateToken();
         const { name, lastname, email } = user;
         return res
-          .cookie("x_auth", user.token)
+          .cookie("x_auth", user.token, { httpOnly: true })
           .status(200)
           .json({ loginSuccess: true, msg: "Login success", user: { name, lastname, email } });
       });
@@ -24,9 +24,10 @@ module.exports = {
   },
   logout: (req, res) => {
     Users.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, result) => {
-      if (err) return res.status(400).json({ error: err });
+      if (err) return res.status(400).json({ msg: err });
+      if (!result) return res.status(400).json({ msg: "Something wrong" });
       res.clearCookie("x_auth");
-      return res.status(200).json({ logoutSuccess: true });
+      return res.status(200).json({ loginSuccess: false });
     });
   },
 };

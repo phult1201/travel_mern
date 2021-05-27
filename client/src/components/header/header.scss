@@ -50,7 +50,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 
-    li {
+    &-item {
       display: inline-block;
       margin: 0 20px;
       transition: all 0.2s ease;
@@ -164,9 +164,13 @@
       opacity: 0;
       transition: transform 0.3s ease-in;
 
-      li {
+      &-item {
+        padding: 15px 10px;
+        cursor: pointer;
         display: block;
-        margin: 30px 20px;
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
       }
     }
 
