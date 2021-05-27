@@ -6,20 +6,16 @@ export const userLogin = (user) => {
   return async (dispatch) => {
     try {
       dispatch({ type: userConstants.USER_LOGIN_REQUEST });
-      const res = await axios
-        .post("/api/users/login", user, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .catch(function (error) {
-          return error.response;
-        });
+      const res = await axios.post("/api/users/login", user).catch(function (error) {
+        return error.response;
+      });
       if (res.status === 200) {
         dispatch({ type: userConstants.USER_LOGIN_SUCCESS, payload: res.data });
-        toast.success(res.data.msg);
+        return toast.success(res.data.msg);
       }
       if (res.status === 401) {
         dispatch({ type: userConstants.USER_LOGIN_FAILURE, payload: res.data });
-        toast.error(res.data.msg);
+        return toast.error(res.data.msg);
       }
     } catch (error) {
       console.log(error);
@@ -31,20 +27,16 @@ export const userRegister = (user) => {
   return async (dispatch) => {
     try {
       dispatch({ type: userConstants.USER_REGISTER_REQUEST });
-      const res = await axios
-        .post("/api/users/register", user, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .catch(function (error) {
-          return error.response;
-        });
+      const res = await axios.post("/api/users/register", user).catch(function (error) {
+        return error.response;
+      });
       if (res.status === 201) {
         dispatch({ type: userConstants.USER_REGISTER_SUCCESS, payload: res.data });
-        toast.success(res.data.msg);
+        return toast.success(res.data.msg);
       }
       if (res.status === 400) {
         dispatch({ type: userConstants.USER_REGISTER_FAILURE, payload: res.data });
-        toast.error(res.data.msg);
+        return toast.error(res.data.msg);
       }
     } catch (error) {
       console.log(error);

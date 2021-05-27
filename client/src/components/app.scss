@@ -9,11 +9,29 @@
 :root {
   font-family: "Poppins", sans-serif;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
-
-.App {
-  width: 1024px;
+.container {
+  max-width: 1366px;
   margin: 0 auto;
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
+a {
+  text-decoration: none;
+}
+
+// Login-Register
 @import url("./container/register_login/register_login.css");
+
+// Header
+@import url("./header/header.css");
+
+// Footer
+@import url("./footer/footer.css");

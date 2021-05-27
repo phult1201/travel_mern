@@ -1,8 +1,8 @@
 .register-login {
-  display: inline-block;
   width: 520px;
+  margin: 100px auto;
   padding: 10px 20px 20px 20px;
-  border: 2px solid #34656d;
+  border: 2px solid #4a4e69;
   border-radius: 4px;
   font-size: 1.6rem;
 }
@@ -14,10 +14,19 @@
   margin: 12px 0;
 }
 
+.register-login__row--half {
+  display: inline-block;
+  width: 45%;
+}
+
+.register-login__row--half:nth-child(2n + 1) {
+  margin-right: 10%;
+}
+
 .register-login__title {
   text-align: center;
   display: block;
-  color: #34656d;
+  color: #4a4e69;
   border-bottom: 1px solid #ccc;
   text-transform: uppercase;
 }
@@ -50,14 +59,14 @@
 }
 
 .register-login__input:focus, .register-login__input:valid {
-  border-bottom: 2px solid #34656d;
+  border-bottom: 2px solid #4a4e69;
   background-color: rgba(52, 101, 109, 0.1);
 }
 
 .register-login__input:focus ~ label,
 .register-login__input:valid ~ label {
   top: 0;
-  color: #34656d;
+  color: #4a4e69;
 }
 
 .register-login__btn {
@@ -68,11 +77,11 @@
   letter-spacing: 0.1rem;
   padding: 8px 32px;
   color: #fff;
-  border-radius: 4px;
-  background-color: #34656d;
+  border-radius: 2px;
+  background-color: #4a4e69;
   transition: background-color 100ms ease-in;
 }
 
 .register-login__btn:hover {
-  background-color: rgba(52, 101, 109, 0.8);
+  background-color: rgba(74, 78, 105, 0.8);
 }

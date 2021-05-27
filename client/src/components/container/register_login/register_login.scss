@@ -1,8 +1,8 @@
 .register-login {
-  display: inline-block;
   width: 520px;
+  margin: 100px auto;
   padding: 10px 20px 20px 20px;
-  border: 2px solid #34656d;
+  border: 2px solid #4a4e69;
   border-radius: 4px;
   font-size: 1.6rem;
 
@@ -11,12 +11,21 @@
     position: relative;
     padding-top: 20px;
     margin: 12px 0;
+
+    &--half {
+      display: inline-block;
+      width: 45%;
+    }
+
+    &--half:nth-child(2n + 1) {
+      margin-right: 10%;
+    }
   }
 
   &__title {
     text-align: center;
     display: block;
-    color: #34656d;
+    color: #4a4e69;
     border-bottom: 1px solid #ccc;
     text-transform: uppercase;
   }
@@ -45,15 +54,16 @@
     border-radius: 0;
     border-bottom: 2px solid rgba(52, 101, 109, 0.5);
     transition: border-bottom 0.2s ease-in;
+
     &:focus,
     &:valid {
-      border-bottom: 2px solid rgb(52, 101, 109);
+      border-bottom: 2px solid #4a4e69;
       background-color: rgba(52, 101, 109, 0.1);
     }
     &:focus ~ label,
     &:valid ~ label {
       top: 0;
-      color: rgb(52, 101, 109);
+      color: #4a4e69;
     }
   }
   &__btn {
@@ -64,11 +74,11 @@
     letter-spacing: 0.1rem;
     padding: 8px 32px;
     color: #fff;
-    border-radius: 4px;
-    background-color: rgb(52, 101, 109);
+    border-radius: 2px;
+    background-color: #4a4e69;
     transition: background-color 100ms ease-in;
     &:hover {
-      background-color: rgba(52, 101, 109, 0.8);
+      background-color: rgba(74, 78, 105, 0.8);
     }
   }
 }

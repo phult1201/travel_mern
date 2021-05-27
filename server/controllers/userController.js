@@ -4,8 +4,8 @@ module.exports = {
   register: async (req, res) => {
     const newUser = new Users(req.body);
     await newUser.save((error, user) => {
-      if (error) return res.status(400).json({ registerSuccess: false, error });
-      return res.status(201).json({ registerSuccess: true });
+      if (error) return res.status(400).json({ registerSuccess: false, msg: error });
+      return res.status(201).json({ registerSuccess: true, msg: "Register success" });
     });
   },
   login: (req, res) => {

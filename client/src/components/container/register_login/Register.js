@@ -20,6 +20,13 @@ const Register = () => {
       return toast.error("Confirm password is incorrect");
     }
     dispatch(userRegister(user));
+    setUser({
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+    setRePassword("");
   };
 
   const onChangeInput = (e) => {
@@ -33,7 +40,7 @@ const Register = () => {
         <h1>register</h1>
       </div>
       <form className="register-login__form" onSubmit={submitForm}>
-        <div className="register-login__row">
+        <div className="register-login__row register-login__row--half">
           <input
             type="text"
             name="name"
@@ -47,7 +54,7 @@ const Register = () => {
             Name
           </label>
         </div>
-        <div className="register-login__row">
+        <div className="register-login__row register-login__row--half">
           <input
             type="text"
             name="lastName"
@@ -83,6 +90,7 @@ const Register = () => {
             id="register-login__input--password"
             value={user.password}
             required
+            autoComplete="on"
             onChange={onChangeInput}
           />
           <label htmlFor="register-login__input--password" className="register-login__label">
@@ -97,6 +105,7 @@ const Register = () => {
             id="register-login__input--rePassword"
             value={rePassword}
             required
+            autoComplete="on"
             onChange={(e) => setRePassword(e.target.value)}
           />
           <label htmlFor="register-login__input--rePassword" className="register-login__label">

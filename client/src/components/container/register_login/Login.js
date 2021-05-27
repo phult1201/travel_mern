@@ -36,7 +36,7 @@ const Login = () => {
             onChange={onChangeInput}
           />
           <label htmlFor="register-login__input--email" className="register-login__label">
-            Email
+            Username
           </label>
         </div>
         <div className="register-login__row">
@@ -46,6 +46,7 @@ const Login = () => {
             className="register-login__input"
             id="register-login__input--password"
             value={user.password}
+            autoComplete="on"
             required
             onChange={onChangeInput}
           />
