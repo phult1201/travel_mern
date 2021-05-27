@@ -11,11 +11,12 @@ export const userLogin = (user) => {
       });
       if (res.status === 200) {
         dispatch({ type: userConstants.USER_LOGIN_SUCCESS, payload: res.data });
-        return toast.success(res.data.msg);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        toast.success(res.data.msg);
       }
       if (res.status === 401) {
         dispatch({ type: userConstants.USER_LOGIN_FAILURE, payload: res.data });
-        return toast.error(res.data.msg);
+        toast.error(res.data.msg);
       }
     } catch (error) {
       console.log(error);
@@ -32,11 +33,11 @@ export const userRegister = (user) => {
       });
       if (res.status === 201) {
         dispatch({ type: userConstants.USER_REGISTER_SUCCESS, payload: res.data });
-        return toast.success(res.data.msg);
+        toast.success(res.data.msg);
       }
       if (res.status === 400) {
         dispatch({ type: userConstants.USER_REGISTER_FAILURE, payload: res.data });
-        return toast.error(res.data.msg);
+        toast.error(res.data.msg);
       }
     } catch (error) {
       console.log(error);

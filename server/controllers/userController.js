@@ -14,7 +14,11 @@ module.exports = {
       user.comparePassword(req.body.password).then(async (result) => {
         if (!result) return res.status(401).json({ loginSuccess: false, msg: "Wrong password" });
         user.generateToken();
-        return res.cookie("x_auth", user.token).status(200).json({ loginSuccess: true, msg: "Login success" });
+        const { name, lastname, email } = user;
+        return res
+          .cookie("x_auth", user.token)
+          .status(200)
+          .json({ loginSuccess: true, msg: "Login success", user: { name, lastname, email } });
       });
     });
   },

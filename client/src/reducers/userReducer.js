@@ -1,6 +1,12 @@
 import { userConstants } from "../actions/constants";
 
 const initialState = {
+  user: {
+    name: "",
+    email: "",
+    lastname: "",
+    token: "",
+  },
   loginSuccess: false,
   msg: "",
   request: false,

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router";
 import { toast } from "react-toastify";
 import { userRegister } from "../../../actions";
 
 const Register = () => {
+  const userReducer = useSelector((state) => state.userReducer);
   const [user, setUser] = useState({
     name: "",
     lastName: "",
@@ -33,6 +35,9 @@ const Register = () => {
     let { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+  if (userReducer.loginSuccess) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="register-login">

@@ -1,13 +1,25 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { userLogin } from "../../../actions";
 
-const Login = () => {
+const Login = (props) => {
+  const userReducer = useSelector((state) => state.userReducer);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("Run useEffect login");
+    if (userReducer.loginSuccess) {
+      history.push("/");
+    }
+    // eslint-disable-next-line
+  }, [userReducer.loginSuccess]);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const dispatch = useDispatch();
 
   const submitForm = (e) => {
     e.preventDefault();

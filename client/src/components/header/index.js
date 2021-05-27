@@ -5,10 +5,11 @@ import { Link, withRouter } from "react-router-dom";
 
 const Header = (props) => {
   const [checked, setChecked] = useState(false);
-  const user = useSelector((state) => state.userReducer);
+  const userReducer = useSelector((state) => state.userReducer);
 
   useEffect(() => {
     setChecked(false);
+    // eslint-disable-next-line
   }, [props.location.pathname]);
 
   const handleToggleCheck = () => {
@@ -22,11 +23,11 @@ const Header = (props) => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Chat</Link>
+          <Link to="/chat">Chat</Link>
         </li>
         <li>
           <FaUserCircle />
-          <Link to="/login">Logout</Link>
+          <Link to="/">{userReducer.user.name}</Link>
         </li>
       </ul>
     );
@@ -59,7 +60,7 @@ const Header = (props) => {
 
         <label className="header__overlay" onClick={handleToggleCheck}></label>
 
-        {user.loginSuccess ? <LoggedNav /> : <NonLoggedNav />}
+        {userReducer.loginSuccess ? <LoggedNav /> : <NonLoggedNav />}
 
         <div className="header__cart-icon">
           <span className="header__span">{0}</span>
